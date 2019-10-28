@@ -1,0 +1,54 @@
+!             __ _ 
+!  ____ ___  / _(_)
+! |  __/ _ \| |_| |
+! | | | (_) |  _| |
+! |_|  \___/|_| |_|
+!
+
+! pywal theme
+rofi.theme: ~/.cache/wal/colors-rofi-dark.rasi
+
+! size
+rofi.width: 25
+rofi.font: terminus 10
+
+!                         _   
+!  _   _ ______  ____   _| |_ 
+! | | | |  __\ \/ /\ \ / / __|
+! | |_| | |   >  <  \ V /| |_ 
+!  \__,_|_|  /_/\_\  \_/  \__|
+!
+
+! font
+URxvt.font: xft:Terminess\ Powerline:pixelsize=14,xft:Source\ Code\ Pro:size=12:antialias=true:hinting=true,xft:Symbola,xft:PowerlineSymbols
+URxvt.boldFont: xft:Terminess\ Powerline:style=Bold;pixelsize=14
+
+!URxvt.font: xft:Roboto\ Mono\ for\ Powerline:style=Regular
+!URxvt.boldFont: xft:Roboto\ Mono\ for\ Powerline:style=Bold
+
+!URxvt.font: xft:LDFComicSans:style=Medium
+!URxvt.boldFont: xft:LDFComicSans:style=Bold
+
+! general
+URxvt.scrollstyle: plain
+URxvt.scrollBar: false
+URxvt.cursorBlink: true
+URxvt.fading: 20
+URxvt.internalBorder: 20
+
+! transparency
+URxvt.transparent: true 
+URxvt.shading: 30
+
+! scrollback buffer lines - 65535 is max (64 is default)
+URxvt.saveLines: 65535
+
+! perl extentions
+URxvt.perl-ext-common: default,matcher,selection-to-clipboard,resize-font
+
+! clickable URLs
+URxvt.url-launcher: /usr/bin/x-www-browser
+URxvt.matcher.button: 2
+
+! disable character insert mode
+URxvt.iso14755: false

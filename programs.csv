@@ -1,0 +1,21 @@
+Name, Description
+xorg, X server
+i3, window manager
+i3blocks, status bar
+i3lock-fancy, lock screen
+redshift, blue light filter
+compton, compositor
+dunst, notification daemon
+unclutter, remove mouse when not in use
+pywal, set wallpaper
+htop, task manager
+zsh, shell
+tmux, terminal multiplexer
+rxvt-unicode, terminal
+terminus-font, my preferred font
+tree, list files recursively
+vifm, file manager
+mupdf, pdf viewer
+vim, text editor
+firefox, browser
+python3, scripting language

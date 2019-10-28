@@ -1,0 +1,177 @@
+#  _ _____
+# (_)___ /
+# | | |_ \
+# | |___) |
+# |_|____/
+#
+# i3 config file (v4)
+#
+# see http://i3wm.org/docs/userguide.html for a complete reference!
+
+# get pywal colours from Xresources
+# im just using the colours at either end of the lightness spectrum
+set_from_resource $fg i3wm.color7 #f0f0f0
+set_from_resource $alert i3wm.color1 #f0f0f0
+set_from_resource $bg i3wm.color0 #f0f0f0
+
+# set i3 colour scheme
+# this is kind of simple but I like how it looks
+client.focused          $bg $bg $fg $bg $bg
+client.focused_inactive $bg $bg $fg $bg $bg
+client.unfocused        $bg $bg $fg $bg $bg
+client.urgent           $bg $bg $fg $bg $bg
+client.placeholder      $bg $bg $fg $bg $bg
+
+client.background       $bg
+
+# Set mod key to windows key
+set $mod Mod4
+
+# Set font
+font xft:Terminus 12
+
+# No title bars
+new_window 1pixel
+
+# run a status bar
+bar {
+	# set bar font
+	font pango:Terminus 8
+
+	# start i3blocks
+	status_command i3blocks -c .config/i3blocks.conf
+
+	# put bar at top
+	position top
+
+	# set bar colours
+  colors {
+           background $bg
+           statusline $fg
+           separator $fg
+           focused_workspace  $fg $fg $bg
+           active_workspace   $fg $fg $bg
+           inactive_workspace $bg $bg $fg
+           urgent_workspace   $fg $alert $bg
+        }
+}
+
+
+#  _              _     _           _     
+# | | _____ _   _| |__ (_)_ __   __| |___ 
+# | |/ / _ \ | | | '_ \| | '_ \ / _` / __|
+# |   <  __/ |_| | |_) | | | | | (_| \__ \
+# |_|\_\___|\__, |_.__/|_|_| |_|\__,_|___/
+#           |___/                         
+#
+# bind keys to commands and i3 functions
+
+# a bash script in path used for debugging stuff
+bindsym $mod+d exec debugboi
+
+# open the browser
+bindsym $mod+w exec firefox
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# start a terminal
+bindsym $mod+Return exec i3-sensible-terminal
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# start rofi (a program launcher)
+bindsym $mod+r exec rofi -show run
+
+# Screenshots
+bindsym --release $mod+s exec scrot -s -e 'mv $f ~/Pictures/screenshots/'
+
+# dmenu (but actully rofi) scripts
+bindsym $mod+u exec sh ~/.scripts/dmenuunicode.sh
+
+# i3lock
+bindsym $mod+e exec i3lock-fancy -f Terminus
+
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# split in horizontal orientation
+bindsym $mod+b split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+bindsym $mod+c focus child
+
+# switch to workspace
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -m 'Do you really want to exit i3?' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# Screen brightness controls
+# NOT WORKING idk why
+#bindsym XF86MonBrightnessUp notify-send "test" # Increase screen brightness 
+#bindsym XF86MonBrightnessDown xbacklight -dec 10 # Decrease screen brightness
+
+# Volume controls
+bindsym XF86AudioRaiseVolume exec amixer sset Master 5%+ && pkill -RTMIN+10 i3blocks 
+bindsym XF86AudioLowerVolume exec amixer sset Master 5%- && pkill -RTMIN+10 i3blocks
+bindsym XF86AudioMute exec amixer sset Master 1+ toggle && pkill -RTMIN+10 i3blocks
+
+# resize window
+bindsym $mod+shift+y resize shrink width 10 px or 10 ppt
+bindsym $mod+shift+u resize grow height 10 px or 10 ppt
+bindsym $mod+shift+i resize shrink height 10 px or 10 ppt
+bindsym $mod+shift+o resize grow width 10 px or 10 ppt
+
