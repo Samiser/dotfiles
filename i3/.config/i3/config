@@ -87,8 +87,11 @@ bindsym $mod+r exec rofi -show run
 # Screenshots
 bindsym --release $mod+s exec scrot -s -e 'mv $f ~/Pictures/screenshots/'
 
-# dmenu (but actully rofi) scripts
+# emojis lol
 bindsym $mod+u exec sh ~/.scripts/dmenuunicode.sh
+
+# launch a terminal with a better presenting font
+bindsym $mod+p exec sh ~/.scripts/terminal_present.sh
 
 # i3lock
 bindsym $mod+e exec i3lock-fancy -f Terminus
