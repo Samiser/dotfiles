@@ -40,3 +40,6 @@
 	let wiki.nested_syntaxes = {'python': 'python', 'c++': 'cpp'}
 
 	let g:vimwiki_list = [wiki]
+
+" instant markdown preview
+	let g:instant_markdown_autostart = 0
