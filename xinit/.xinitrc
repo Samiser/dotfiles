@@ -28,5 +28,7 @@ dunst &
 # hide the mouse when not in use
 unclutter -idle 5 &
 
+nm-applet &
+
 # start window manager
 exec i3
