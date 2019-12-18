@@ -127,9 +127,12 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+#bindsym $mod+a focus parent
 
 # focus the child container
+#bindsym $mod+c focus child
+
+# clipboard menu
 bindsym $mod+c focus child
 
 # switch to workspace

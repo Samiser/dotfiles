@@ -43,3 +43,28 @@
 
 " instant markdown preview
 	let g:instant_markdown_autostart = 0
+
+" hex editing
+
+	" bind command for calling hex mode function
+	command -bar Hexmode call ToggleHex()
+
+	" hex editing toggle function
+	function ToggleHex()
+		if !exists("b:editingHex") || !b:editingHex
+			" set status
+			let b:editingHex=1
+			" switch to hex editor
+			%!xxd
+		else
+			" set status
+			let b:editingHex=0
+			" switch to hex editor
+			%!xxd -r
+		endif
+	endfunction
+	
+	" bind ctrl+H to toggle hex mode in 
+	nnoremap <C-H> :Hexmode<CR>
+	inoremap <C-H> <Esc>:Hexmode<CR>
+	vnoremap <C-H> :<C-U>Hexmode<CR>
