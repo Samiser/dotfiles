@@ -27,6 +27,7 @@
 	Plugin 'vimwiki/vimwiki'
 	Plugin 'tpope/vim-surround'
 	Plugin 'suan/vim-instant-markdown', {'rtp': 'after'}
+	Plugin 'xuhdev/vim-latex-live-preview'
 
 	call vundle#end()
 
@@ -43,6 +44,9 @@
 
 " instant markdown preview
 	let g:instant_markdown_autostart = 0
+
+" live latex preview
+	let g:livepreview_previewer = 'zathura'
 
 " hex editing
 
