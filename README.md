@@ -47,7 +47,7 @@ cd dotfiles
 run stow on whatever folder u want the dotfiles for:
 
 ```
-stow tmux/vim/i3
+stow [tmux/vim/i3]
 ```
 
 or run stow on all the folders for all the dotfiles:
