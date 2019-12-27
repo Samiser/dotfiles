@@ -41,7 +41,7 @@ URxvt.transparent: true
 URxvt.shading: 30
 
 ! scrollback buffer lines - 65535 is max (64 is default)
-URxvt.saveLines: 65535
+URxvt.saveLines: 0
 
 ! perl extentions
 URxvt.perl-ext-common: default,matcher,selection-to-clipboard,resize-font

@@ -17,9 +17,12 @@ autoload -U colors && colors
 PROMPT=%F{magenta}%n%F{yellow}"@"%F{magenta}%M%F{white}":"%F{cyan}%1~%F{white}"$ "
 
 # history
-HISTSIZE=10000
-SAVEHIST=10000
-HISTFILE=~/.cache/zsh/history
+HISTSIZE=50000
+SAVEHIST=50000
+HISTFILE=~/.zshhistory
+
+setopt INC_APPEND_HISTORY
+setopt SHARE_HISTORY
 
 # autocomplete
 autoload -U compinit
@@ -46,10 +49,3 @@ bindkey '^e' edit-command-line
 run_htop () { htop }
 zle -N run_htop
 bindkey '^h' run_htop
-
-# run tmux only in x
-#	if [[ $DISPLAY ]]; then
-#	    # If not running interactively, do not do anything
-#	    [[ $- != *i* ]] && return
-#      [[ -z "$TMUX" ]] && exec tmux
-#	fi
