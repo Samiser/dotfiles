@@ -79,7 +79,7 @@ bindsym $mod+w exec firefox
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvt -e tmux
+bindsym $mod+Return exec x-terminal-emulator
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -94,7 +94,7 @@ bindsym --release $mod+s exec scrot -s -e 'mv $f ~/Pictures/screenshots/'
 bindsym $mod+u exec sh ~/.scripts/dmenuunicode.sh
 
 # launch a terminal with a better presenting font
-bindsym $mod+p exec sh ~/.scripts/terminal_present.sh
+bindsym $mod+p exec zsh ~/.scripts/terminal_present.sh
 
 # i3lock
 bindsym $mod+e exec i3lock-fancy -f Terminus
