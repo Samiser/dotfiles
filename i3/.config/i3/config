@@ -60,6 +60,9 @@ bar {
 
 default_border pixel 1
 
+# some windows should float
+for_window [instance="fontpreview"] floating enable
+
 #  _              _     _           _     
 # | | _____ _   _| |__ (_)_ __   __| |___ 
 # | |/ / _ \ | | | '_ \| | '_ \ / _` / __|
@@ -177,6 +180,11 @@ bindsym $mod+Shift+e exec "i3-nagbar -m 'Do you really want to exit i3?' -b 'Yes
 bindsym XF86AudioRaiseVolume exec amixer sset Master 5%+ && pkill -RTMIN+10 i3blocks 
 bindsym XF86AudioLowerVolume exec amixer sset Master 5%- && pkill -RTMIN+10 i3blocks
 bindsym XF86AudioMute exec amixer sset Master 1+ toggle && pkill -RTMIN+10 i3blocks
+
+# Multimedia keys
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
 
 # resize window
 bindsym $mod+shift+y resize shrink width 10 px or 10 ppt
