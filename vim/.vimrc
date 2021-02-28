@@ -20,9 +20,6 @@
     " dont redraw during macros, runs them faster
     set lazyredraw
 
-" neovim option to show command changes incrementally
-    set inccommand=nosplit
-
 " tabs
     " always use 4 spaces as tab
     set expandtab
