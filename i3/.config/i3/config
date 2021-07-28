@@ -8,6 +8,11 @@
 #
 # see http://i3wm.org/docs/userguide.html for a complete reference!
 
+# gaps
+gaps inner 15
+gaps outer 0
+#smart_gaps on
+
 # get pywal colours from Xresources
 # im just using the colours at either end of the lightness spectrum
 set_from_resource $fg i3wm.color7 #f0f0f0
@@ -28,18 +33,15 @@ client.background       $bg
 set $mod Mod4
 
 # Set font
-font xft:Terminus 12
+font pango:DejaVuSansMono Nerd Font Mono 10
 
 # No title bars
 new_window 1pixel
 
 # run a status bar
 bar {
-	# set bar font
-	font pango:Terminus 8
-
 	# start i3blocks
-	status_command i3blocks -c .config/i3blocks.conf
+	status_command i3blocks
 
 	# put bar at top
 	position top
@@ -47,21 +49,19 @@ bar {
 	strip_workspace_numbers yes
 
 	# set bar colours
-  colors {
-           background $bg
-           statusline $fg
-           separator $fg
-           focused_workspace  $fg $fg $bg
-           active_workspace   $fg $fg $bg
-           inactive_workspace $bg $bg $fg
-           urgent_workspace   $fg $alert $bg
-         }
+	colors {
+        background $bg
+        statusline $fg
+        separator $fg
+        focused_workspace  $fg $fg $bg
+        active_workspace   $fg $fg $bg
+        inactive_workspace $bg $bg $fg
+        urgent_workspace   $fg $alert $bg
+    }
 }
 
 default_border pixel 1
 
-# some windows should float
-for_window [instance="fontpreview"] floating enable
 
 #  _              _     _           _     
 # | | _____ _   _| |__ (_)_ __   __| |___ 
@@ -76,19 +76,20 @@ for_window [instance="fontpreview"] floating enable
 bindsym $mod+d exec debugboi
 
 # open the browser
-bindsym $mod+w exec firefox
+bindsym $mod+w exec chromium
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec x-terminal-emulator
+bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # start rofi (a program launcher)
 bindsym $mod+r exec rofi -show run
+bindsym $mod+Tab exec rofi -show window
 
 # Screenshots
 bindsym --release $mod+s exec scrot -s -e 'mv $f ~/Pictures/screenshots/'
@@ -96,11 +97,8 @@ bindsym --release $mod+s exec scrot -s -e 'mv $f ~/Pictures/screenshots/'
 # emojis lol
 bindsym $mod+u exec sh ~/.scripts/dmenuunicode.sh
 
-# launch a terminal with a better presenting font
-bindsym $mod+p exec zsh ~/.scripts/terminal_present.sh
-
 # i3lock
-bindsym $mod+e exec i3lock-fancy -f Terminus
+bindsym $mod+e exec i3lock
 
 # change focus
 bindsym $mod+h focus left
@@ -162,6 +160,11 @@ bindsym $mod+Shift+8 move container to workspace 8:www
 bindsym $mod+Shift+9 move container to workspace 9:spotify
 bindsym $mod+Shift+0 move container to workspace 10:msg
 
+# assign applications to workspaces
+assign [class="Chromium"] 8:www
+assign [class="discord"] 10:msg
+for_window [class="Spotify"] move to workspace 9:spotify
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
 
@@ -173,8 +176,8 @@ bindsym $mod+Shift+e exec "i3-nagbar -m 'Do you really want to exit i3?' -b 'Yes
 
 # Screen brightness controls
 # NOT WORKING idk why
-#bindsym XF86MonBrightnessUp notify-send "test" # Increase screen brightness 
-#bindsym XF86MonBrightnessDown xbacklight -dec 10 # Decrease screen brightness
+bindsym XF86MonBrightnessUp exec xbacklight -inc 5 # Increase screen brightness 
+bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # Decrease screen brightness
 
 # Volume controls
 bindsym XF86AudioRaiseVolume exec amixer sset Master 5%+ && pkill -RTMIN+10 i3blocks 
@@ -192,3 +195,5 @@ bindsym $mod+shift+u resize grow height 10 px or 10 ppt
 bindsym $mod+shift+i resize shrink height 10 px or 10 ppt
 bindsym $mod+shift+o resize grow width 10 px or 10 ppt
 
+# launch applications on login
+exec nm-applet

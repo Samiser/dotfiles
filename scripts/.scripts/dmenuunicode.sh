@@ -12,7 +12,7 @@ chosen=$(grep -v "#" ~/.scripts/emojis | rofi -dmenu -i -l 15 -fn Monospace-18)
 c=$(echo "$chosen" | sed "s/ .*//")
 echo "$c" | tr -d '\n' | xclip -selection clipboard
 notify-send "'$c' copied to clipboard." &
+echo "$c" | tr -d '\n' | xclip
+notify-send "'$c' copied to primary." &
 
-s=$(echo "$chosen" | sed "s/.*; //" | awk '{print $1}')
-echo "$s" | tr -d '\n' | xclip
-notify-send "'$s' copied to primary." &
+#s=$(echo "$chosen" | sed "s/.*; //" | awk '{print $1}')

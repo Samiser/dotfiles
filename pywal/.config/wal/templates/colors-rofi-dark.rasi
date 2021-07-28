@@ -32,7 +32,7 @@
     background-color: rgba({background.rgb},0.7);
     border: 0;
     padding: 2.5ch;
-		width: 500;
+    width: 700;
 }}
 
 #mainbox {{

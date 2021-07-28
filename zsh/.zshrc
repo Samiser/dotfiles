@@ -1,5 +1,3 @@
-# Created by newuser for 5.7.1
-
 # aliases
 test -f ~/.bash_aliases && source ~/.bash_aliases
 
@@ -14,15 +12,10 @@ eval $(ssh-agent) > /dev/null
 autoload -U colors && colors
 
 # set prompt
-PROMPT=%F{magenta}%n%F{yellow}"@"%F{magenta}%M%F{white}":"%F{cyan}%1~%F{white}"$ "
+PROMPT=[%F{magenta}%n%F{yellow}"@"%F{magenta}%M%F{white}":"%F{red}"$(brl which)"%F{white}":"%F{cyan}%1~%F{white}"]$ "
 
-# history
-HISTSIZE=50000
-SAVEHIST=50000
-HISTFILE=~/.zshhistory
-
-setopt INC_APPEND_HISTORY
-setopt SHARE_HISTORY
+# hetzner autocomplete
+fpath+=(~/.config/hcloud/completion/zsh)
 
 # autocomplete
 autoload -U compinit
@@ -45,7 +38,20 @@ bindkey -v
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
-# open htop with ctrl h
-run_htop () { htop }
-zle -N run_htop
-bindkey '^h' run_htop
+# history
+HISTSIZE=50000
+SAVEHIST=50000
+HISTFILE=~/.zshhistory
+
+setopt INC_APPEND_HISTORY
+setopt SHARE_HISTORY
+
+# hcloud completion
+if [ -f ~/.zsh/hcloud ]; then
+    source ~/.zsh/hcloud
+else
+    print "404: ~/.zsh/hcloud not found."
+fi
+
+# opam configuration
+test -r /home/sam/.opam/opam-init/init.zsh && . /home/sam/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
