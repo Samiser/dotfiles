@@ -99,7 +99,7 @@ bindsym --release $mod+Shift+s exec scrot -e 'mv $f ~/Pictures/screenshots/ && x
 bindsym $mod+u exec sh ~/.scripts/dmenuunicode.sh
 
 # i3lock
-bindsym $mod+e exec i3lock
+bindsym $mod+e exec i3lock-fancy
 
 # change focus
 bindsym $mod+h focus left
@@ -173,17 +173,21 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -m 'Do you really want to exit i3?' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "i3-nagbar -m 'fr tho' -b 'ye' 'i3-msg exit'"
 
 # Screen brightness controls
-# NOT WORKING idk why
 bindsym XF86MonBrightnessUp exec xbacklight -inc 5 # Increase screen brightness 
 bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # Decrease screen brightness
 
-# Volume controls
-bindsym XF86AudioRaiseVolume exec amixer sset Master 5%+ && pkill -RTMIN+10 i3blocks 
-bindsym XF86AudioLowerVolume exec amixer sset Master 5%- && pkill -RTMIN+10 i3blocks
-bindsym XF86AudioMute exec amixer sset Master 1+ toggle && pkill -RTMIN+10 i3blocks
+# old volume controls
+#bindsym XF86AudioRaiseVolume exec amixer sset Master 5%+ && pkill -RTMIN+10 i3blocks 
+#bindsym XF86AudioLowerVolume exec amixer sset Master 5%- && pkill -RTMIN+10 i3blocks
+#bindsym XF86AudioMute exec amixer sset Master 1+ toggle && pkill -RTMIN+10 i3blocks
+
+# new and epic volume controls
+bindsym XF86AudioRaiseVolume exec ~/.scripts/volume up
+bindsym XF86AudioLowerVolume exec ~/.scripts/volume down
+bindsym XF86AudioMute exec ~/.scripts/volume toggle
 
 # Multimedia keys
 bindsym XF86AudioPlay exec playerctl play-pause

@@ -1,0 +1,23 @@
+#!/bin/bash
+
+if [ $# -eq 0 ]
+then
+    echo "need to say 'toggle', 'up' or 'down'"
+fi
+
+sink=`pactl list sinks | grep Name | tail -1 | awk '{print $2}'`
+
+case $1 in
+    toggle)
+        pactl set-sink-mute $sink toggle
+        pkill -SIGRTMIN+10 i3blocks
+        ;;
+    up)
+        pactl set-sink-volume $sink +5%
+        pkill -SIGRTMIN+10 i3blocks
+        ;;
+    down)
+        pactl set-sink-volume $sink -5%
+        pkill -SIGRTMIN+10 i3blocks
+        ;;
+esac
