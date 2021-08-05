@@ -92,7 +92,8 @@ bindsym $mod+r exec rofi -show run
 bindsym $mod+Tab exec rofi -show window
 
 # Screenshots
-bindsym --release $mod+s exec scrot -s -e 'mv $f ~/Pictures/screenshots/'
+bindsym --release $mod+s exec scrot -s -e 'mv $f ~/Pictures/screenshots/ && xclip -sel c -t image/png -i ~/Pictures/screenshots/$f'
+bindsym --release $mod+Shift+s exec scrot -e 'mv $f ~/Pictures/screenshots/ && xclip -sel c -t image/png -i ~/Pictures/screenshots/$f'
 
 # emojis lol
 bindsym $mod+u exec sh ~/.scripts/dmenuunicode.sh
