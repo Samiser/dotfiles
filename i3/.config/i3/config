@@ -41,7 +41,7 @@ new_window 1pixel
 # run a status bar
 bar {
 	# start i3blocks
-	status_command i3blocks
+	status_command i3blocks -c ~/.config/i3blocks.conf
 
 	# put bar at top
 	position top
@@ -92,7 +92,8 @@ bindsym $mod+r exec rofi -show run
 bindsym $mod+Tab exec rofi -show window
 
 # Screenshots
-bindsym --release $mod+s exec scrot -s -e 'mv $f ~/Pictures/screenshots/'
+bindsym --release $mod+s exec scrot -sf -e 'mv $f ~/Pictures/screenshots/'
+bindsym --release $mod+Shift+s exec scrot -e 'mv $f ~/Pictures/screenshots/'
 
 # emojis lol
 bindsym $mod+u exec sh ~/.scripts/dmenuunicode.sh
