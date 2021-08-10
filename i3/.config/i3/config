@@ -21,7 +21,7 @@ set_from_resource $bg i3wm.color0 #f0f0f0
 
 # set i3 colour scheme
 # this is kind of simple but I like how it looks
-client.focused          $bg $bg $fg $bg $bg
+client.focused          $fg $bg $fg $bg $fg
 client.focused_inactive $bg $bg $fg $bg $bg
 client.unfocused        $bg $bg $fg $bg $bg
 client.urgent           $bg $bg $fg $bg $bg
@@ -60,7 +60,7 @@ bar {
     }
 }
 
-default_border pixel 1
+default_border pixel 3
 
 
 #  _              _     _           _     
@@ -98,6 +98,9 @@ bindsym --release $mod+Shift+s exec scrot -e 'mv $f ~/Pictures/screenshots/ && x
 # emojis lol
 bindsym $mod+u exec sh ~/.scripts/dmenuunicode.sh
 
+# greyscale toggle
+bindsym $mod+g exec sh ~/.scripts/greytoggle.sh
+
 # i3lock
 bindsym $mod+e exec i3lock-fancy
 
@@ -129,12 +132,9 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-#bindsym $mod+a focus parent
+bindsym $mod+a focus parent
 
 # focus the child container
-#bindsym $mod+c focus child
-
-# clipboard menu
 bindsym $mod+c focus child
 
 # switch to workspace
