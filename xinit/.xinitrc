@@ -12,23 +12,14 @@ wal -i $(cat ~/.cache/wal/wal)
 # source .Xresources
 xrdb -merge ~/.Xresources
 
+# hide cursor when typing
+unclutter -idle 5 &
+
 # start compositor
-compton -b
-
-# keep ur eyes good
-redshift -b 1.0:0.5 -t 6000:3000 &
-
-# urxvt daemon
-# see man urxvtd and man urxvtc
-urxvtd -q &
+picom -b
 
 # notification daemon
 dunst &
 
-# hide the mouse when not in use
-unclutter -idle 5 &
-
-nm-applet &
-
 # start window manager
-exec i3
+exec ck-launch-session dbus-launch --sh-syntax --exit-with-session i3

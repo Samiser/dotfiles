@@ -33,7 +33,7 @@ client.background       $bg
 set $mod Mod4
 
 # Set font
-font pango:DejaVuSansMono Nerd Font Mono 10
+font pango:Fira Code Nerd Font 10
 
 # No title bars
 new_window 1pixel
@@ -41,7 +41,7 @@ new_window 1pixel
 # run a status bar
 bar {
 	# start i3blocks
-	status_command i3blocks -c ~/.config/i3blocks.conf
+	status_command i3blocks
 
 	# put bar at top
 	position top
@@ -92,7 +92,7 @@ bindsym $mod+r exec rofi -show run
 bindsym $mod+Tab exec rofi -show window
 
 # Screenshots
-bindsym --release $mod+s exec scrot -s -e 'mv $f ~/Pictures/screenshots/ && xclip -sel c -t image/png -i ~/Pictures/screenshots/$f'
+bindsym --release $mod+s exec scrot -s -f -e 'mv $f ~/Pictures/screenshots/ && xclip -sel c -t image/png -i ~/Pictures/screenshots/$f'
 bindsym --release $mod+Shift+s exec scrot -e 'mv $f ~/Pictures/screenshots/ && xclip -sel c -t image/png -i ~/Pictures/screenshots/$f'
 
 # emojis lol
