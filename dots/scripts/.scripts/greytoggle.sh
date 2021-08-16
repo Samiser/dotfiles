@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 grey_image=~/.cache/grey
 

@@ -12,10 +12,7 @@ eval $(ssh-agent) > /dev/null
 autoload -U colors && colors
 
 # set prompt
-PROMPT=[%F{magenta}%n%F{yellow}"@"%F{magenta}%M%F{white}":"%F{red}"$(brl which)"%F{white}":"%F{cyan}%1~%F{white}"]$ "
-
-# hetzner autocomplete
-fpath+=(~/.config/hcloud/completion/zsh)
+PROMPT=[%F{magenta}%n%F{yellow}"@"%F{red}%M%F{white}":"%F{cyan}%1~%F{white}"]$ "
 
 # autocomplete
 autoload -U compinit
@@ -49,8 +46,8 @@ setopt SHARE_HISTORY
 # hcloud completion
 if [ -f ~/.zsh/hcloud ]; then
     source ~/.zsh/hcloud
-else
-    print "404: ~/.zsh/hcloud not found."
+    # hetzner autocomplete
+    fpath+=(~/.config/hcloud/completion/zsh)
 fi
 
 # opam configuration
