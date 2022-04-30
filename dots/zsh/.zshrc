@@ -14,6 +14,14 @@ autoload -U colors && colors
 # set prompt
 PROMPT=[%F{magenta}%n%F{yellow}"@"%F{red}%M%F{white}":"%F{cyan}%1~%F{white}"]$ "
 
+# set starship prompt
+eval "$(starship init zsh)"
+
+# hcloud completion
+if [ -f ~/.config/hcloud/completion/zsh/_hcloud ]; then
+    fpath+=(~/.config/hcloud/completion/zsh)
+fi
+
 # autocomplete
 autoload -U compinit
 zstyle ':completion:*' menu select
@@ -43,12 +51,7 @@ HISTFILE=~/.zshhistory
 setopt INC_APPEND_HISTORY
 setopt SHARE_HISTORY
 
-# hcloud completion
-if [ -f ~/.zsh/hcloud ]; then
-    source ~/.zsh/hcloud
-    # hetzner autocomplete
-    fpath+=(~/.config/hcloud/completion/zsh)
-fi
+path+=('/home/sam/bin/')
 
-# opam configuration
-test -r /home/sam/.opam/opam-init/init.zsh && . /home/sam/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+export PATH
+

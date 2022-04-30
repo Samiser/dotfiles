@@ -3,7 +3,7 @@ configuration {
 	width: 200;
 /*	lines: 15;*/
 /*	columns: 1;*/
-	font: "DejaVuSansMono Nerd Font Mono 10";
+	font: "Monospace 10";
 /*	bw: 1;*/
 /*	location: 0;*/
 /*	padding: 5;*/
