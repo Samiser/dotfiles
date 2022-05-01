@@ -33,7 +33,7 @@ client.background       $bg
 set $mod Mod4
 
 # Set font
-font pango:Fira Code Nerd Font 10
+font pango:Monospace 10
 
 # No title bars
 new_window 1pixel
@@ -62,7 +62,6 @@ bar {
 
 default_border pixel 3
 
-
 #  _              _     _           _     
 # | | _____ _   _| |__ (_)_ __   __| |___ 
 # | |/ / _ \ | | | '_ \| | '_ \ / _` / __|
@@ -88,7 +87,7 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+q kill
 
 # start rofi (a program launcher)
-bindsym $mod+r exec rofi -show run
+bindsym $mod+r exec rofi -show drun
 bindsym $mod+Tab exec rofi -show window
 
 # Screenshots

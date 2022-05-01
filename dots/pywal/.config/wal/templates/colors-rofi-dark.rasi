@@ -1,5 +1,11 @@
 
 * {{
+    background: rgba({background.rgb},0.0);
+    foreground: rgba({foreground.rgb},1.0);
+    background-color: @background;
+    border-color: @background;
+    spacing: 2;
+
     active-background: {color2};
     active-foreground: @foreground;
     normal-background: @background;
@@ -21,18 +27,14 @@
     selected-urgent-background: {color3};
     selected-urgent-foreground: @foreground;
 
-    background-color: @background;
-    background: rgba({background.rgb},0.0);
-    foreground: rgba({foreground.rgb},1.0);
-    border-color: @background;
-    spacing: 2;
+    text-color: @foreground;
 }}
 
 #window {{
-    background-color: rgba({background.rgb},0.7);
+    background-color: rgba({background.rgb},0.9);
     border: 0;
     padding: 2.5ch;
-    width: 700;
+    width: 900;
 }}
 
 #mainbox {{
