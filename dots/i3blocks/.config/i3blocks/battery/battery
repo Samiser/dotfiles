@@ -87,8 +87,6 @@ if ($status eq 'Discharging') {
 	    $full_text = '';
     }
 
-    $full_text .= " (chargin)";
-
 } elsif ($status eq 'Full') {
     $full_text = ' (full)';
 } elsif ($status eq 'Unknown') {
@@ -106,6 +104,8 @@ if ($status eq 'Discharging') {
 		}
 	}
 }
+
+$full_text .= " $percent%";
 
 $short_text = $full_text;
 

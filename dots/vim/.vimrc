@@ -36,7 +36,7 @@
     set hlsearch
     " no capitals searches case insensitive, caps are
     set smartcase ignorecase
-
+    " space clear highlighted text
     nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 
 " window navigation
